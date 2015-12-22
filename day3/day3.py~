@@ -1,0 +1,56 @@
+#!/usr/bin/python
+#title			:day3.py
+#description		:Day 3 of Advent of code
+#author			:Mike Jarrett
+#date			:20151222
+#version		:1
+#usage			:python day3.py
+#notes			:
+#python_version	:2.6.6
+#==============================================================================
+
+
+#after each char calculate the x,y coords and enter them into a dict
+
+coord_visits = {}
+coord = [0, 0] #starting coord, updated after each move
+
+
+# end the origin into the dic
+coord_visits[tuple(coord)] = 1
+
+with open('input.txt') as f:
+    while True:
+        c = f.read(1)
+
+        
+        if c == '^':
+            #print 'up'
+            coord[1] += 1
+            
+        elif c == 'v':
+            #print 'down'
+            coord[1] += -1
+
+        elif c == '>':
+            #print 'right'
+            coord[0] += 1
+
+        elif c == '<':
+            #print 'left'
+            coord[0] += -1
+            
+        else:
+            print 'something is wrong'
+            break
+
+
+        #at this point we've resolved the current coordinate
+        #print tuple(coord)
+        coord_tup = tuple(coord)
+        if coord_tup in coord_visits:
+            coord_visits[coord_tup] += 1
+        else:
+            coord_visits[coord_tup] = 1
+        
+print len(coord_visits)
