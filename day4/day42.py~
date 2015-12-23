@@ -25,10 +25,6 @@ def find_hash():
         if mh[0:5] == '00000':
             print mh
             print test_hash # print the test hash
-            
-        if mh[0:6] == '000000':
-            print mh
-            print test_hash
             break
 
 
