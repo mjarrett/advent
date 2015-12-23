@@ -1,0 +1,2 @@
+ctr-a-d detaches screen
+screen -r reattaches screen

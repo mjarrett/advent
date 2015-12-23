@@ -1,0 +1,3 @@
+ctr-a-d detaches screen
+screen -r reattaches screen
+screen -ls lists active screens
