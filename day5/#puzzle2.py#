@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #title			:day5.py
-#description		:day 5 advent of code
+#description		:day 5 advent of code part 2
 #author			:Mike Jarrett
 #date			:20151223
 #version		:1
@@ -51,41 +51,17 @@ def nobads(line):
         if i != 0:
             pair = line[i-1] + line[i]
             if pair in badstrings:
-                #print pair
+                print pair
                 nobad = False
     return nobad
-
-
-def hasdoubdoub(line):
-    doubdoub = False
-    for i, c in enumerate(line):
-        if i != 0:
-            pair = line[i-1] + line[i]
-            #print pair + ' ' + line + ' ' + line[:i-1] + line[i+1:]
-            if pair in line[:i-1] or pair in line[i+1:]:
-                print pair
-                doubdoub = True
-                
-    return doubdoub
-
-def hassep(line):
-    sep = False
-    for i, c in enumerate(line):  #i gives index, c gives character
-        if i > 1:
-            if line[i] == line[i-2]:
-                sep = True 
-    return sep
-
-
 
 def goodstrings():
 
     f = open('input.txt')
-#    f = [ 'qjhvhtzxzqqjkmpb', 'xxyxx', 'uurcxstgmygtbstg', 'ieodomkazucvgmuy', 'urrxxebxrthtjvib' ] # part 2 test
-#    f = [ 'ugknbfddgicrmopn', 'jchzalrnumimnmhp' , 'haegwjzuvuyypxyu', 'dvszwmarrgswjxmb' ] #part 1 test
+    f = [ 'qjhvhtzxzqqjkmpb', 'xxyxx', 'uurcxstgmygtbstg', 'ieodomkazucvgmuy' ]
+
 
     goodlines = 0
-    goodlines2 = 0
     for line in f:
         #print line
 
@@ -93,15 +69,11 @@ def goodstrings():
         #if nobads(line):
             goodlines += 1
             
-            #print 'part 1' + line
-
-
-        if hasdoubdoub(line) and hassep(line):
-            goodlines2 +=1
             print line
+            #print goodlines
+        #else: print line
+    print goodlines
 
-    print 'part 1 ', goodlines
-    print 'part 2 ', goodlines2
 
 
 
