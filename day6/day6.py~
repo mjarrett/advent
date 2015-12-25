@@ -1,0 +1,25 @@
+#!/usr/bin/python
+#title			:day6.py
+#description		:Day 6 advent of code
+#author			:Mike Jarrett
+#date			:20151225
+#version		:1
+#usage			:python day6.py
+#notes			:
+#python_version	:2.6.6
+#==============================================================================
+
+f = open('input.txt')
+
+
+#build grid
+
+grid = {} # 1000x1000 grid
+
+for i in range(0,999):
+    for j in range(0,999):
+        grid[(i,j)] = 0
+
+print len(grid)
+
+

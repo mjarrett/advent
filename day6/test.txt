@@ -1,0 +1,3 @@
+turn on 119,662 through 760,838
+toggle 378,775 through 526,852
+turn off 384,670 through 674,972
