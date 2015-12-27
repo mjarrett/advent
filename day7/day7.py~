@@ -1,0 +1,55 @@
+#!/usr/bin/python
+#title			:day7.py
+#description		:advent of code day7
+#author			:Mike Jarrett
+#date			:20151225
+#version		:1
+#usage			:python day7.py
+#notes			:
+#python_version	:2.6.6
+#==============================================================================
+
+import re
+
+
+def assign(left, right):
+    print 'assign'
+
+
+def notswitch(left, right):
+    print 'not'
+
+def comboswitch(left1,switch,left2,right):
+    print 'combo'
+
+
+
+
+
+f = open('input.txt')
+
+wire = {}
+
+
+for line in f:
+    m = re.match(r'(\w+)\s(\w*)\s?(\w*)\s?->\s(\w+)',line)
+    
+    #print m.group(1), m.group(2), m.group(3), m.group(4)
+    #print line
+    #print m.group(1)
+    #print m.group(2)
+    #print m.group(3)
+    #print m.group(4)
+
+    if m.group(2) == '' and m.group(3) == '':
+        #direct assignment
+        #print line
+        assign(m.group(1), m.group(4))
+
+    elif m.group(2) != '' and m.group(3) == '':
+        #NOT xx = yy
+        #print line
+        notswitch(m.group(2),m.group(4))
+    else:
+        #switch xx OR yy = zz
+        comboswitch(m.group(1),m.group(2),m.group(3),m.group(4))
