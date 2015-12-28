@@ -12,13 +12,13 @@
 import re
 
 
-#f = open('input.txt')
-f = open('test.txt')
+f = open('input.txt')
+#f = open('test.txt')
 
 wires = {}
 connects = []
 
-
+part2 = True
 
 #this section loads all the lines into a list
 for line in f:
@@ -87,6 +87,9 @@ for connect in connects:
     if connect[0] == 'start': 
         wires[connect[4]] = int(connect[1])
 
+if part2:
+    wires['b'] = 46065
+
 # fxn to find wires that have been assigned and return list
 def findempty():
     empty_wires = []
@@ -152,14 +155,6 @@ while findnext():
 #        print sorted(findfilled())
         eval(c)
 
-print wires
+
 print wires['a']
 #print wires
-print sorted(findfilled())
-
-for connect in connects:
-    if connect[1] in findfilled() and connect[4] in findempty():
-        print '1'
-        print connect
-    if connect[3] in findfilled() and connect[4] in findempty():
-        print connect
