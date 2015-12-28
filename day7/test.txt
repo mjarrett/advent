@@ -1,5 +1,5 @@
 xx AND yy -> d
-xx ORy y -> e
+xx OR yy -> e
 456 -> yy
 xx LSHIFT 2 -> ff
 yy RSHIFT 2 -> gg

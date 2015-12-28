@@ -12,8 +12,8 @@
 import re
 
 
-#f = open('input.txt')
-f = open('test.txt')
+f = open('input.txt')
+#f = open('test.txt')
 
 wires = {}
 connects = []
@@ -85,8 +85,8 @@ for connect in connects:
 # now find starting points in connects and assign wire values
 for connect in connects:
     if connect[0] == 'start': 
-        wires[connect[4]] = int(connect[1])
-
+        #wires[connect[4]] = int(connect[1])
+        wires[connect[4]] =  BitArray('0b'+'{0:016b}'.format(int(connect[1])))
 # fxn to find wires that have been assigned and return list
 def findempty():
     empty_wires = []
@@ -136,7 +136,7 @@ def eval(c):
     elif c[2] == 'RSHIFT':
         wires[c[4]] = wires[c[1]] >> int(c[3])
     elif c[0] == 'not':
-        wires[c[4]] = ~wires[c[1]] & 0xFFFF 
+        wires[c[4]] = ~wires[c[1]] 
     elif c[0] == 'assign':
         wires[c[4]] = wires[c[1]]
 
@@ -147,12 +147,11 @@ while findnext():
 
     for c in findnext():
         print c
-#        print wires['lx']
-#        print wires['a']
+        print wires['lx']
+        print wires['a']
 #        print sorted(findfilled())
         eval(c)
 
-print wires
 print wires['a']
 #print wires
 print sorted(findfilled())
