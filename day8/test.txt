@@ -1,5 +1,5 @@
-B""
+""
 "abc"
 "aaa\"aaa"
 "\x27"
-"gf\x43dsf\\xjgklfdfs"
+"f\x43dsf\\xjg"
