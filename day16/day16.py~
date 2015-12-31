@@ -1,0 +1,20 @@
+#!/usr/bin/python                                                                                                                                   
+#title                  :day16.py                                                                                                                   
+#description            :advent of code day 16                                                                                                      
+#author                 :Mike Jarrett                                                                                                               
+#date                   :20151230                                                                                                                   
+#version                :1                                                                                                                          
+#usage                  :python day16.py                                                                                                            
+#notes                  :                                                                                                                           
+#python_version :2.6.6                                                                                                                              
+#==============================================================================                                                                     
+import re
+f = open('input.txt')
+
+info = {'children': 3, 'cats': 7, 'samoyeds': 2, 'pomeranians': 3, 'akitas': 0, 'vizslas': 0, 'goldfish': 5, 'trees': 3, 'cars': 2, 'perfumes': 1}
+
+def read_in(f):
+    for line in f:
+        m = re.search('Sue (\w+): (\w+): (\d+), (\w+): (\d), (\w+): (\d+)',line)
+        if m:
+            print line
