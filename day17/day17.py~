@@ -1,0 +1,35 @@
+#!/usr/bin/python
+#title			:day17.py
+#description		:advent of code day 17
+#author			:Mike Jarrett
+#date			:20151231
+#version		:1
+#usage			:python day17.py
+#notes			:
+#python_version	:2.6.6
+#==============================================================================
+
+import itertools as it
+
+f = open('input.txt')
+
+def read_in():
+    sizes = []
+    for line in f:
+        sizes.append(line)
+#        print line
+
+litres = 25
+sizes = [ 20, 15, 10, 5, 5 ]
+
+
+def make_perms():
+    sizes = sorted(sizes)
+    for size in sizes:
+
+
+    print max_index
+    #perms = it.permutations(sizes)
+    #print list(perms)
+
+make_perms()
