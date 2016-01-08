@@ -68,12 +68,12 @@ def iter(m):
             #if RHS is in the molecule, perform replacement
             if tran[1] in m:
 
-                print tran
+                #print tran
                 m = m.replace(tran[1],tran[0],1)
-                print m
+                #print m
                 steps += 1
-                print loops
-                print steps
+                #print loops
+                #print steps
                 
 
     return steps
