@@ -53,21 +53,35 @@ print len(set(results))
 def f(it):
     return len(it[1])
 
+#sort trans list so longest RHS first
 strans = sorted(trans, key=f, reverse=True)
 
 def iter(m):
-
+    steps = 0
+    loops = 0
+    #we're trying to loop down until we're left with an electron
     while m != 'e':
-
+        loops += 1
+        #loop through transforms from largest to smallest RHS
         for tran in strans:
             
+            #if RHS is in the molecule, perform replacement
             if tran[1] in m:
+
                 print tran
-                m.replace(tran[1],tran[0])
+                m = m.replace(tran[1],tran[0],1)
+                print m
+                steps += 1
+                print loops
+                print steps
                 
-            
-            
-        print m
+
+    return steps
 
 
-print iter(mol)
+print "part 2: %s" % iter(mol)
+
+
+
+
+
