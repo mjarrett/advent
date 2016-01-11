@@ -1,0 +1,60 @@
+#!/usr/bin/python
+#title			:day22.py
+#description		:advent of code day 22
+#author			:Mike Jarrett
+#date			:20160109
+#version		:1
+#usage			:python day22.py
+#notes			:
+#python_version	:2.7.6
+#==============================================================================
+import itertools
+
+
+#provide hitpoints, damage given and defense for each player                                                                                        
+#   (id, mana, turns, damage, armour,health,newmana)
+missile = [1,53,1,4,0,0,0]
+drain   = [2,73,1,2,0,2,0]
+shield =  [3,113,6,0,7,0,0]
+poison =  [4,173,6,3,0,0,0]
+recharge =[5,229,5,0,0,0,101]
+spells = [missile,drain,shield,poison,recharge]
+
+#Magic Missile costs 53 mana. It instantly does 4 damage.
+#Drain costs 73 mana. It instantly does 2 damage and heals you for 2 hit points.
+#Shield costs 113 mana. It starts an effect that lasts for 6 turns. While it is active, your armor is increased by 7.
+#Poison costs 173 mana. It starts an effect that lasts for 6 turns. At the start of each turn while it is active, it deals the boss 3 damage.
+#Recharge costs 229 mana. It starts an effect that lasts for 5 turns. At the start of each turn while it is active, it gives you 101 new mana.
+
+
+#build a list called "active spells". Each turn, add the spell to activespells. When spell[2] IN activespells == 0, remove it from list
+
+#bhp = 71
+#bdam= 10 #hit points, damage given 
+#mhp = 50
+#man = 500
+
+
+def fight(bhp,bdam,mhp,man):
+    
+
+    return True
+
+
+
+
+def spellorder(mana):
+    
+    result = []
+    for order in itertools.permutations(spells,2000): #i don't know how many 
+
+        for i,spell in enumerate(order):
+
+            if order[i] not in order[i:i+spell[2]-1]:
+                result.append(order)
+
+    return result
+
+print len(spellorder(500))
+
+
