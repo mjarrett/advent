@@ -21,13 +21,6 @@ poison =  [4,173,6,3,0,0,0]
 recharge =[5,229,5,0,0,0,101]
 spells =  [missile,drain,shield,poison,recharge]
 
-# have a list that keeps track of damage, armour, health, newmana 
-# to be added each turn. Each turn, delete the first element from the list
-#myhp = 0
-#mymana = 0
-#bosshp = 0
-#bossdam = 0
-#future = []
 
 #provide hitpoints, damage given and defense for each player     
 def fight(mhp,mdam,mdef,bhp,bdam,bdef):
@@ -56,6 +49,7 @@ def turn(future, stats):
     try:
         spell = random.choice(goodspells)
         print "spell %d" % (spell[0])
+        print spell
     except IndexError:
         spell = [0]*7
         print "Out of mana"
@@ -68,10 +62,20 @@ def turn(future, stats):
         future[i][1] += spell[4]  #armour
         future[i][2] += spell[5]  #health
         future[i][3] += spell[6]  #newmana
+        
 
+    print stats
+    print future
     #run fight(mhp,mdam,mdef,bhp,bdam,bdef)
     mhp,bhp = fight(stats[0],future[0][0],future[0][1],stats[2],stats[3],0)
+    print "hitpoints after round %d, %d" % (mhp, bhp)
     mymana = stats[1] - spell[1]
+    print "mana after spending it: %d" % mymana
+    mymana += future[0][3]
+    print "mana after recharge: %d" % mymana
+    mhp += future[0][2]
+    print "hp after health boost: %d" % mhp
+
     
     #update future list mylist.insert(0, mylist.pop(5))
     future.pop(0) #remove first elemet from list
@@ -90,5 +94,16 @@ def sim_match():
     while s[0]>0:
         f,s = turn(f,s)
         print s
+    return s
+
 
 sim_match()
+
+#while True:
+#    s = sim_match()
+
+#    if s[2] < 0:
+#        print s
+#        break
+
+
