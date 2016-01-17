@@ -1,0 +1,18 @@
+#!/usr/bin/python
+#title			:day23.py
+#description		:Advent of code day 23
+#author			:Mike Jarrett
+#date			:20160116
+#version		:1
+#usage			:python day23.py
+#notes			:
+#python_version	:2.7.6
+#==============================================================================
+
+
+import re
+
+f = open('input.txt','r')
+
+for line in f:
+    m = re.match(
