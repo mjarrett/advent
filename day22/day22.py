@@ -47,8 +47,8 @@ def init():
 def turn(future, stats):
 
 
-    print "--------------------"
-    print "--------------------"
+#    print "--------------------"
+#    print "--------------------"
     
 
 #    print effects
@@ -61,7 +61,7 @@ def turn(future, stats):
 
 
     spell = random.choice(goodspells)
-    print "spell %d" % (spell[0])
+    #print "spell %d" % (spell[0])
 #    print spell
     effects[spell[0]] = spell[2] 
 #    print effects
@@ -120,12 +120,24 @@ def sim_match():
         manaspent += mana
         #print s
     #print spellorder
-    return spellorder, manaspent
-    
-for i in range(100):
-    matches = {}
-    a, b = sim_match()
-    matches[a] = b
 
-print matches
+    if s[2] <= 0:
+        playerwin = True
+#        print "manaspent " + str(manaspent)
+    else:
+        playerwin = False
+    
+
+    return spellorder, manaspent, playerwin
+
+matches = {}    
+for i in range(100000000):
+
+    a, b, w = sim_match()
+
+    if w:
+        matches[a] = b
+
+print min([ v for v in matches.values()])        
+
 
